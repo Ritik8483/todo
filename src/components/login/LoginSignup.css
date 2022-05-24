@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #cacccd
+}
+.card{
+  height: auto;
+  width: 440px !important;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  margin: 40px 0
+}
+.image{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center
+}
+.image span{
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+    background-color: #eeeeee
+}
+.image span img{
+    height: 100%;
+    width: 100%
+}
+.image h3{
+    margin-top: 14px;
+    font: bold
+}
+.image p{
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #929296
+}
+.outer_div{
+    margin-top: 30px;
+}
+.input_text{
+    height: 45px;
+    width: 100%;
+    outline:0;
+    border: none;
+    border:1px solid #ccc;
+    border-radius: 10px;
+    padding: 0 5px;
+    transition: all 0.3s;
+}
+.input_text:focus{
+    border: 1px solid blue;
+    box-shadow: 0 15px 30px rgb(234, 234, 238);
+}
+.password_field{
+    padding-right: 30px;
+}
+.btns{
+    height: 45px;
+    width: 100% !important;
+    background-color: blueviolet;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    margin-top: 30px;
+}
+.btns:hover{
+    background-color: blue;
+}
+.social{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px
+}
+.social span{
+    height: 45px;
+    width: 65px;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.social span img{
+    width: 30px;
+    object-fit: cover;
+    transition: all 0.5s
+}
+.social span:hover img{
+    width: 37px
+}
+.social span:nth-child(2){
+    background-color: #fff;
+    border: 1px solid #434343
+}
+.social span:nth-child(3){
+    background-color: #1b9ae5
+}
+.social span:nth-child(4){
+    border: 1px solid #a5a6a7;
+    background-color: #fff
+}
+.account{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    color: cadetblue;
+}
+.link_tag{
+    text-decoration: none;
+    margin-left: 5px;
+    color: blue;
+}
+.error_msg{
+    font-size: 15px;
+    margin: 3px 0 0 5px;
+    color: red;
+}
