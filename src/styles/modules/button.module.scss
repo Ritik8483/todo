@@ -25,7 +25,14 @@
 	background-color: var(--primaryPurple);
 	color: var(--white);
 }
+.button--primary:hover{
+	background-color: blue;
+}
 .button--secondary {
 	background-color: var(--bg-3);
 	color: var(--black-1);
+}
+.button--secondary:hover{
+	background-color: #aaacc7;
+	color: black;
 }

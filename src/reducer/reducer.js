@@ -2,7 +2,6 @@ import { addToCart,removeToCart } from "../action/action";
 import { createSlice } from "@reduxjs/toolkit";
 const initialStates=0;
 
-const toDoArray=[];
 
 const getInitialTodo=()=>{
     const localToDoList=window.localStorage.getItem('todoList');
@@ -10,11 +9,11 @@ const getInitialTodo=()=>{
         return JSON.parse(localToDoList)
     }
     window.localStorage.setItem('todoList',JSON.stringify([]));
-    return[];
+    return [];
 
 }
-export const initialValues={
-    todoList:getInitialTodo(),
+const initialValues={
+    todoList: getInitialTodo(),
 }
 
 const todoSlice=createSlice({
@@ -31,9 +30,6 @@ const todoSlice=createSlice({
                 });
                 window.localStorage.setItem('todoList',JSON.stringify(todoListArr))
             }
-            else{
-                window.localStorage.setItem('todoList',JSON.stringify([{...action.payload}]))
-            }
         },   
         deleteToDo:(state,action)=>{
             const todoList=window.localStorage.getItem('todoList');
@@ -41,7 +37,7 @@ const todoSlice=createSlice({
                 const todoListArr=JSON.parse(todoList); 
                 todoListArr.forEach((todoItem,todoindex)=>{
                     if(todoItem.id===action.payload){
-                        todoListArr.splice(todoindex,1);
+                    todoListArr.splice(todoindex,1);
                     }
                 });
                 window.localStorage.setItem('todoList',JSON.stringify(todoListArr));

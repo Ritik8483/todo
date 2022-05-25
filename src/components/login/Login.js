@@ -5,15 +5,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import './LoginSignup.css'
 
 
-
 const Login = () => {
   const navigate=useNavigate();
   const formikInitialValues={
     email:'',
     password:'',
   }
-  const submitForm=(values)=>{
-    // console.log("Form Values",values)
+  const submitForm=()=>{
     navigate('/pagetitle')
   }
   const validateSchema=yup.object().shape({
@@ -32,7 +30,10 @@ const Login = () => {
               <h3>Sign in</h3>
               <p>Welome back!Enter your email and password below to sign in.</p>
             </div>
-            <Formik initialValues={formikInitialValues} onSubmit={submitForm} validationSchema={validateSchema}>
+            <Formik
+              initialValues={formikInitialValues}
+              onSubmit={submitForm}
+              validationSchema={validateSchema}>
               <Form>
                 <div className='outer_div'>
                   <Field className='input_text' type='text' name='email' placeholder='Enter your email'></Field>

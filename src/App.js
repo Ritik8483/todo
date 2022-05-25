@@ -24,8 +24,8 @@ function App() {
           </Routes>
         </Router>
         <Toaster 
-         position="bottom-right"
-         reverseOrder={false}
+         position="top-right"
+        //  reverseOrder={false}
          toastOptions={{style:{fontSize:'1.5rem'}}}
         />
       </div>

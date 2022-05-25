@@ -12,7 +12,7 @@ const AppHeader = () => {
   return (
     <div>
         <div className={style.appHead}>
-            <Button variant='primary' onClick={alertFunction}>Add Task</Button>
+            <Button variant='primary' type='button' onClick={alertFunction}>Add Task</Button>
             <SelectButton>
                 <option value='all'>All</option>
                 <option value='incomplete'>Incomplete</option>
@@ -20,7 +20,6 @@ const AppHeader = () => {
             </SelectButton>
         </div>
         <ToDoModal type='add' modalOpen={modalOpen} setmodalOpen={setmodalOpen}/>
-        
     </div>
   )
 }

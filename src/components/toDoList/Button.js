@@ -2,21 +2,17 @@ import React from 'react'
 import { getClasses } from '../../utils/getClasses';
 import styles from '../../styles/modules/button.module.scss';
 
-const buttonTypes={
-  primary:'primary',
-  secondary:'secondary'
-}
- 
+
 const Button = ({children,variant,type,onClick}) => {
   return (
     <div>
       <button 
         className={getClasses([styles.button,
-        styles[`button--${buttonTypes[variant]}`]])}
+        styles[`button--${variant}`]
+        ])}
         onClick={onClick}
         type={type==='submit'?'submit':'button'}>
         {children}
-        
         </button>
     </div>
   )

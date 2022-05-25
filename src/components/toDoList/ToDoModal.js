@@ -8,7 +8,6 @@ import { v4 as uuid } from 'uuid';
 import toast from 'react-hot-toast';
 
 const ToDoModal = ({type,modalOpen,setmodalOpen,todoItems}) => {
-    console.log(type)
     const [title,setTitle]=useState('');
     const[status,setstatus]=useState('Incomplete');
     const dispatch = useDispatch();
@@ -30,7 +29,7 @@ const ToDoModal = ({type,modalOpen,setmodalOpen,todoItems}) => {
             toast.error('Please enter an valid title');
             return;
         }
-        console.log({title,status});
+        // console.log({title,status});
         if(title && status){
             if(type==='add'){
                 dispatch(addToDo({
@@ -49,7 +48,8 @@ const ToDoModal = ({type,modalOpen,setmodalOpen,todoItems}) => {
                         title,
                         status,
                     }));
-                    toast.success('Task UPDATED Successfully');
+                    toast.success('Task Updated Successfully');
+                    setmodalOpen(false);
                 }
                 else{
                     toast.error('No Changes Made');
@@ -64,18 +64,15 @@ const ToDoModal = ({type,modalOpen,setmodalOpen,todoItems}) => {
   return (
     <div>
         {modalOpen && 
-
-        
         <div className={styles.wrapper}>
             <div className={styles.container}>
                 <div className={styles.closeButton} 
-                onClick={(()=>setmodalOpen(false))}
-                tabIndex={0}
-                role='button'
-                >
+                    onClick={(()=>setmodalOpen(false))}
+                    tabIndex={0}
+                    role='button'>
                     <MdOutlineClose/>
                 </div>
-                <form className={styles.form} onSubmit={((e)=>handleSubmit(e))}>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <h1 className={styles.formTitle}> {type==='update' ? 'Update' : 'Add'} Task</h1>
                     <label htmlFor="title">
                         Title
