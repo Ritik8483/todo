@@ -10,11 +10,20 @@ const AppContent = () => {
   const sortedToDoList=[...todoList]; 
   // console.log('SortedToDo',sortedToDoList);
   sortedToDoList.sort((a,b)=>new Date(b.time)-new Date(a.time));
+
+  const filterStatus=useSelector((state)=>state.todoSlice.filterStatus);
+  const filteredToDoList=sortedToDoList.filter((item)=>{
+    if(filterStatus==='all'){
+      return true;
+    }
+    return item.status===filterStatus;
+  });
+
   return (
     <div>
         {
-          sortedToDoList.length>0 
-          ? sortedToDoList.map((todoItems)=><ToDoItem todoItems={todoItems} key={todoItems.id} />)
+          filteredToDoList.length>0 
+          ? filteredToDoList.map((todoItems)=><ToDoItem todoItems={todoItems} key={todoItems.id} />)
           : <h1>'No to do found'</h1>
         }
     </div>

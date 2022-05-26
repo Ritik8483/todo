@@ -18,9 +18,9 @@ const Button = ({children,variant,type,onClick}) => {
   )
 }
 
-export const SelectButton=({children})=>{
+export const SelectButton=({children,id,...rest})=>{
   return(
-    <select className={getClasses([styles.button,styles.button__select])}>{children}</select>
+    <select id={id} {...rest} className={getClasses([styles.button,styles.button__select])}>{children}</select>
   )
 
 }
