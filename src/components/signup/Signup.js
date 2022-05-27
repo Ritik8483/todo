@@ -1,9 +1,20 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import * as yup from 'yup';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { FaEyeSlash,FaEye } from "react-icons/fa";
 
 const Signup = () => {
+  const[eyes,setEyes]=useState(true);
+  const[confirmEye,setConfirmEye]=useState(true);
+
+  const confirmToggle=()=>{
+    setConfirmEye(!confirmEye);
+  }
+
+  const toggleEye=()=>{
+    setEyes(!eyes);
+  }
     const navigate=useNavigate();
     const formikInitialValues={
         name:'',
@@ -42,12 +53,22 @@ const Signup = () => {
                   <p className='error_msg'><ErrorMessage name='email'/></p>
                 </div>
                 <div className='outer_div'>
-                  <Field className='input_text password_field' type='password' name='password' placeholder='Enter your password'></Field>
+                  <Field className='input_text password_field' type={eyes===true ? 'password' : 'text'} name='password' placeholder='Enter your password'></Field>
                   <p className='error_msg'><ErrorMessage name='password'/></p>
+                  <div className='seteye'>
+                    {
+                      eyes===true ? <FaEyeSlash onClick={toggleEye}/> : <FaEye onClick={toggleEye} />
+                    }
+                  </div>
                 </div>
                 <div className='outer_div'>
-                  <Field className='input_text password_field' type='password' name='confirmPassword' placeholder='Confirm password'></Field>
+                  <Field className='input_text password_field' type={confirmEye===true ? 'password' : 'text'} name='confirmPassword' placeholder='Confirm password'></Field>
                   <p className='error_msg'><ErrorMessage name='confirmPassword'/></p>
+                  <div className='seteye'>
+                    {
+                      confirmEye===true ? <FaEyeSlash onClick={confirmToggle}/> : <FaEye onClick={confirmToggle} />
+                    }
+                  </div>
                 </div>
                 <button type='submit' className='btns'>Signup</button>
               </Form>

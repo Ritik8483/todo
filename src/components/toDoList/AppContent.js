@@ -5,13 +5,13 @@ import { initialValues } from '../../reducer/reducer';
 import ToDoItem from './ToDoItem';
 
 const AppContent = () => {
-  const todoList = useSelector((state) => state.todoSlice.todoList);
+  const todoList = useSelector((stateTarget) => stateTarget.todo.todoList);
   // console.log("All Items",todoList);
   const sortedToDoList=[...todoList]; 
   // console.log('SortedToDo',sortedToDoList);
   sortedToDoList.sort((a,b)=>new Date(b.time)-new Date(a.time));
 
-  const filterStatus=useSelector((state)=>state.todoSlice.filterStatus);
+  const filterStatus=useSelector((state)=>state.todo.filterStatus);
   const filteredToDoList=sortedToDoList.filter((item)=>{
     if(filterStatus==='all'){
       return true;

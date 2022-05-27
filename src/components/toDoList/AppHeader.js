@@ -9,7 +9,7 @@ const AppHeader = () => {
     const dispatch=useDispatch();
     const[modalOpen,setmodalOpen]=useState(false);
     // const[filterStatus,setfilterStatus]=useState(initialFilterStatus);
-    const filterStatusValue=useSelector((state)=>state.todoSlice.filterStatus);
+    const filterStatusValue=useSelector((state)=>state.todo.filterStatus);
     const alertFunction=()=>{
         setmodalOpen(true);
     }

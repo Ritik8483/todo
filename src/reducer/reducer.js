@@ -38,8 +38,9 @@ const todoSlice=createSlice({
                 const todoListArr=JSON.parse(todoList); 
                 todoListArr.forEach((todoItem,todoindex)=>{
                     if(todoItem.id===action.payload){
-                    todoListArr.splice(todoindex,1);
+                        todoListArr.splice(todoindex,1);
                     }
+                    console.log('ToDo Index',todoindex);
                 });
                 window.localStorage.setItem('todoList',JSON.stringify(todoListArr));
                 state.todoList=todoListArr;

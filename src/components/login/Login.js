@@ -1,15 +1,20 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import * as yup from 'yup';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './LoginSignup.css'
+import { FaEyeSlash,FaEye } from "react-icons/fa";
 
 
 const Login = () => {
   const navigate=useNavigate();
+  const[eyes,setEyes]=useState(true);
   const formikInitialValues={
     email:'',
     password:'',
+  }
+  const toggleEye=()=>{
+    setEyes(!eyes);
   }
   const submitForm=()=>{
     navigate('/pagetitle')
@@ -40,8 +45,13 @@ const Login = () => {
                   <p className='error_msg'><ErrorMessage name='email'/></p>
                 </div>
                 <div className='outer_div'>
-                  <Field className='input_text password_field' type='password' name='password' placeholder='Enter your password'></Field>
+                  <Field className='input_text password_field' type={eyes===true ? 'password' : 'text'} name='password' placeholder='Enter your password'></Field>
                   <p className='error_msg'><ErrorMessage name='password'/></p>
+                  <div className='seteye'>
+                    {
+                      eyes===true ? <FaEyeSlash onClick={toggleEye}/> : <FaEye onClick={toggleEye} />
+                    }
+                  </div>
                 </div>
                 <button type='submit' className='btns'>Login</button>
               </Form>

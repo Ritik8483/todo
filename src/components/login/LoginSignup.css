@@ -51,6 +51,7 @@
 }
 .outer_div{
     margin-top: 30px;
+    position: relative;
 }
 .input_text{
     height: 45px;
@@ -65,6 +66,18 @@
 .input_text:focus{
     border: 1px solid blue;
     box-shadow: 0 15px 30px rgb(234, 234, 238);
+}
+.seteye{
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: gray;
+    font-size: 18px;
+}
+.seteye:hover{
+    color: green;
 }
 .password_field{
     padding-right: 30px;
