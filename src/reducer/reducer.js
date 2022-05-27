@@ -61,7 +61,6 @@ const todoSlice=createSlice({
         },
         updateFilterStatus:(state,action)=>{
             state.filterStatus=action.payload;
-
         }
     },
     

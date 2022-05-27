@@ -9,12 +9,12 @@ const AppHeader = () => {
     const dispatch=useDispatch();
     const[modalOpen,setmodalOpen]=useState(false);
     // const[filterStatus,setfilterStatus]=useState(initialFilterStatus);
-    const filterStatus=useSelector((state)=>state.todoSlice.filterStatus);
+    const filterStatusValue=useSelector((state)=>state.todoSlice.filterStatus);
     const alertFunction=()=>{
         setmodalOpen(true);
     }
     const updateFilter=(e)=>{
-        console.log('Updated Select');
+        // console.log('Updated Select');
         dispatch(updateFilterStatus(e.target.value))
     }
 
@@ -22,7 +22,7 @@ const AppHeader = () => {
     <div>
         <div className={style.appHead}>
             <Button variant='primary' type='button' onClick={alertFunction}>Add Task</Button>
-            <SelectButton id='status' value={filterStatus} onChange={((e)=>updateFilter(e))}>
+            <SelectButton value={filterStatusValue} onChange={((e)=>updateFilter(e))}>
                 <option value='all'>All</option>
                 <option value='incomplete'>Incomplete</option>
                 <option value='complete'>Complete</option>
